@@ -1,0 +1,39 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+<h1 class="page-header">Question: {{ id }}</h1>
+
+<h2>{{ question.question|e }}</h2>
+
+
+{% if question.code %}
+<pre class="prettyprint lang-php">
+&lt;?php
+{{ question.code }}
+?&gt;
+</pre>
+{% endif %}
+
+<hr />
+
+{% if question.type == 'choice' %}
+
+<ul class="list-unstyled">
+    {% for alternative in question.alternatives %}
+        <li>{{ loop.index0|toChar }}) - <input type="checkbox" /> {{ alternative|e }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+
+{% if question.phrase %}
+<p>{{ question.phrase }}</p>
+{% endif %}
+<input type="text" class="form-control" placeholter="what's the answer?" />
+{% endif %}
+
+<hr />
+
+<h4><a class="btn_show_answer" href="#">Show answer</a></h4>
+<h4 class="answer">The answer is: {{ question.answer|implode }}</h4>
+
+{% endblock %}

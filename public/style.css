@@ -1,0 +1,16 @@
+
+.answer_table .correct input {
+    display: none;
+}
+
+#question_form textarea {
+    display: none;
+}
+
+.btn-toolbar, .btn-group {
+    border-bottom: none;
+}
+
+h4.answer {
+    display: none;
+}

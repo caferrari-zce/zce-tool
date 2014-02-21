@@ -1,0 +1,84 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+<h1 class="page-header">Add question</h1>
+<form role="form" id="question_form" method="post">
+  <div class="form-group">
+    <label>Question: </label>
+    <input type="text" name="question" autocomplete="off" class="form-control" placeholder="Enter a question">
+  </div>
+
+  <div class="form-group">
+    <label>Category: </label>
+    <select class="form-control" name="category">
+      <option>Arrays</option>
+      <option>Basics</option>
+      <option>Data Format &amp; Types</option>
+      <option>Databases &amp; SQL</option>
+      <option>Functions</option>
+      <option>I/O</option>
+      <option>Object Oriented Programming</option>
+      <option>Security</option>
+      <option>Strings &amp; Patterns</option>
+      <option>Web Features</option>
+    </select>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-12">
+      <label>Code: <a href="#" class="add_code">Add code</a></label>
+      <textarea class="form-control" name="code" rows="7"></textarea>
+    </div>
+  </div>
+
+  <input type="hidden" name="type" value="c">
+
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#choice" data-toggle="tab" data-value="c">Choice</a></li>
+    <li><a href="#text" data-toggle="tab" data-value="t">Text</a></li>
+    <li><a href="#fill" data-toggle="tab" data-value="f">Fill</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div class="tab-pane active" id="choice">
+      <table class="table answer_table">
+        <thead>
+          <tr>
+            <th colspan="3">Alternative</th>
+          </tr>
+        </thread>
+        <tbody>
+          <tr class="question_line">
+            <td><input type="text" name="alternative[]" class="answer_field form-control" autocomplete="off" placeholder="Alternative..."></td>
+            <td width="120">
+              <label class="btn btn-primary btn-block correct">
+                <input type="hidden" name="correct[]" value="n">
+                <span class="glyphicon glyphicon glyphicon-thumbs-down"></span> Correct
+              </label>
+            </td>
+            <td width="120"><button type="button" class="btn btn-danger btn-block remove"><span class="glyphicon glyphicon-remove"></span> Remove</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tab-pane" id="text">
+      <div class="form-group">
+        <label>Answer</label>
+        <input type="text" class="form-control" name="text_answer" placeholder="Enter the correct answer">
+      </div>
+    </div>
+    <div class="tab-pane" id="fill">
+      <div class="form-group">
+        <label>Phrase</label>
+        <input type="text" class="form-control" name="phrase" placeholder="Enter the phrase">
+      </div>
+      <div class="form-group">
+        <label>Answer</label>
+        <input type="text" class="form-control" name="fill_answer" placeholder="Enter the correct answer">
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+{% endblock %}
