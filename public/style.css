@@ -14,3 +14,7 @@
 h4.answer {
     display: none;
 }
+
+#code_question {
+    display: none;
+}

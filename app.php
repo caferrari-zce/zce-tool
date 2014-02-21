@@ -86,8 +86,12 @@ $router->post('/question/add', function() use ($twig, $homeRoute) {
 
     $question->type = $types[$_POST['type']];
 
-    if ($_POST['code']) {
-        $question->code = $_POST['code'];
+    if (trim($_POST['code'])) {
+        $question->code = trim($_POST['code']);
+
+        if (trim($_POST['code_question'])) {
+            $question->code_question = trim($_POST['code_question']);
+        }
     }
 
     if ($question->type == 'text') {

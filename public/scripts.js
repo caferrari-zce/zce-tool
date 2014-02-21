@@ -69,6 +69,8 @@ $(document).ready(function(){
     $('.add_code').on('click', function() {
         $(this).hide();
         $(this).closest('.form-group').find('textarea').show();
+
+        $('#code_question').show();
     });
 
     $('.btn_show_answer').on('click', function() {
